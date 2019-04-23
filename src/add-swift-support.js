@@ -169,9 +169,9 @@ const getConfigParser = (context, configPath) => {
   let ConfigParser;
 
   if (semver.lt(context.opts.cordova.version, '5.4.0')) {
-    ConfigParser = require('cordova-lib/src/ConfigParser/ConfigParser');
+    ConfigParser = context.requireCordovaModule('cordova-lib/src/ConfigParser/ConfigParser');
   } else {
-    ConfigParser = require('cordova-common/src/ConfigParser/ConfigParser');
+    ConfigParser = context.requireCordovaModule('cordova-common/src/ConfigParser/ConfigParser');
   }
 
   return new ConfigParser(configPath);
