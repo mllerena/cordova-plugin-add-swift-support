@@ -189,7 +189,7 @@ const getBridgingHeaderPath = (projectPath, iosPlatformVersion) => {
 };
 
 const getPlatformVersionsFromFileSystem = (context, projectRoot) => {
-  const cordovaUtil = require('cordova-lib/src/cordova/util');
+  const cordovaUtil = context.requireCordovaModule('cordova-lib/src/cordova/util');
   const platformsOnFs = cordovaUtil.listPlatforms(projectRoot);
   const platformVersions = platformsOnFs.map(platform => {
     const script = path.join(projectRoot, 'platforms', platform, 'cordova', 'version');
